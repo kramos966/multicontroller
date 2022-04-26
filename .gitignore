@@ -1,0 +1,7 @@
+*.png
+__pycache__/*
+*.jpeg
+*.zip
+*.json
+*.swp
+*.pyc

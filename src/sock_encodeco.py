@@ -56,12 +56,3 @@ class ZipEncoDeco():
         target = target_bytes.decode("ascii")
         decoded = self._ndecoder.decode(target)
         return decoded
-
-if __name__ == "__main__":
-    def test():
-        msg = "EIIIIIIIII"
-        encoded = encode_bytes(msg.encode())
-        decoded = decode_bytes(encoded).decode()
-        print(decoded)
-
-    test()
