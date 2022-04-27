@@ -3,6 +3,15 @@ import multiprocessing as mp
 import imageio
 import numpy as np
 from .devices import BasicDevice
+
+help_text = \
+"""Available commands:
+    connect [ip] [port]           - connect to device at ip through port.
+    set [numerator] [denominator] - set the exposure time T = numerator/denominator.
+    capture {number}              - capture an image with optional argument the number of the camera to be used.
+    exit                          - close all connections and exit
+"""
+
 class CommanderDevice(BasicDevice):
     def __init__(self, timeout=0.5):
         super().__init__()
@@ -158,6 +167,9 @@ class CommanderDevice(BasicDevice):
                     self.put_text("Error: set shutter numerator denominator")
                 else:
                     self.send_all(command)
+
+            elif args[0] == "help":
+                self.put_text(help_text)
 
             elif args[0] == "exit":
                 self.running = False
