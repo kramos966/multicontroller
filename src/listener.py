@@ -35,7 +35,7 @@ class ListenerDevice(BasicDevice):
             self.send_response(conn, result)
             self.send_response(conn, "Fet!")
         else:
-            self.send_response(rsp_head, str(result))
+            self.send_response(conn, str(result))
         self.stop_signal(conn)
 
     def process_conn(self, conn):
@@ -58,12 +58,12 @@ class ListenerDevice(BasicDevice):
                     self.signal_process(conn, self.capture, "Capturo i envio una imatge...")
 
                 elif args[0] == "set":
-                    if len(args) < 3:
+                    if len(args) < 2:
                         print("Bad command, 'set' requires at least 2 more arguments!")
                     else:
                         kind, option = args[1:]
                         if kind == "shutter":
-                            option = [int(i) for i in option] 
+                            option = int(option)
                             self.signal_process(conn, self.set_shutter, rsp_head="Shutter set to",
                                     fun_args=(option,))
 

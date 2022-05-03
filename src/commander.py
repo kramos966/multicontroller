@@ -163,8 +163,8 @@ class CommanderDevice(BasicDevice):
                 if not self.connections:
                     self.put_text("Error: No camera(s) connected!")
                     return
-                elif len(args) < 3:
-                    self.put_text("Error: set shutter numerator denominator")
+                elif len(args) < 2:
+                    self.put_text("Error: set shutter [time]")
                 else:
                     self.send_all(command)
 

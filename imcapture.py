@@ -5,12 +5,12 @@ class CameraApp():
     def __init__(self, resolution=None):
         if resolution:
             w, h = resolution
-            # Restringim les dimensions a múltiples de 32 i 16 respectivament!
-            w = w & (~31)
-            h = h & (~15)
 
         else:
-            w, h = 1024, 768
+            w, h = 4056, 3040
+        # Restringim les dimensions a múltiples de 32 i 16 respectivament!
+        w = w & (~31)
+        h = h & (~15)
         
         # Array on es captura cada imatge. Format RGB
         self.image = np.zeros((h, w, 3), dtype=np.uint8)
