@@ -8,6 +8,7 @@ from tkinter.filedialog import asksaveasfilename, askopenfilename
 import multiprocessing as mp
 import platform
 import json
+import imageio
 
 class TkCommander(tk.Tk, CommanderDevice):
     def __init__(self, timeout=0.5):
@@ -91,6 +92,9 @@ class TkCommander(tk.Tk, CommanderDevice):
 
         # Comprovem els missatges després d'un cert temps d'espera
         self.after(100, self.update_log)
+
+    def save_image(self, fname, image):
+        imageio.imsave(fname, image)
 
     def run(self):
         # Llegeix comandes, si n'hi hagués
