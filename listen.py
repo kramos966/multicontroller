@@ -19,8 +19,8 @@ class PicameraListener(ListenerDevice):
         """Aquesta és una funció que s'ha d'extendre amb el mètode de captura
         desitjat!. Ha de retornar obligatòriament un array."""
         # Fem un wrapper amb la funció que hem generat nosaltres...
-        array = capture_image()
-        return array
+        self.camera.capture()
+        return self.camera.image.copy()
 
 if __name__ == "__main__":
     host, port = "0.0.0.0", 8888
