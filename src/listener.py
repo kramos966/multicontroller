@@ -70,8 +70,6 @@ class ListenerDevice(BasicDevice):
                 else:
                     self.ackowledge_command(conn, "vale.")
                     self.stop_signal(conn)
-        # Close on exit
-        self.close()
 
     def close(self):
         pass
@@ -97,6 +95,8 @@ class ListenerDevice(BasicDevice):
                     print(f"Connection closed with {addr}")
             except KeyboardInterrupt:
                 print(f"Stopped listening on {self.host}, {self.port}")
+        # Close on exit
+        self.close()
 
 def main():
     host, port = "0.0.0.0", 8888
